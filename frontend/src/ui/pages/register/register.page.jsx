@@ -22,6 +22,15 @@ export const Register = () => {
         <Input label="E-mail" name="email" type="email" />
         <Input label="Password" name="password" type="password" />
 
+        <Input
+          defaultChecked
+          label="Pessoa"
+          value="person"
+          name="type"
+          type="radio"
+        />
+        <Input label="Empresa" value="person" name="type" type="radio" />
+
         <button>Registrar</button>
       </Form>
     </div>
@@ -30,5 +39,5 @@ export const Register = () => {
 
 createRoute({
   path: '/register',
-  component: Register
+  component: Register,
 })

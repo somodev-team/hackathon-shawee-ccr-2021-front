@@ -14,7 +14,15 @@ export const Input = ({ name, ...rest }) => {
     })
   }, [fieldName, registerField])
 
-  return <input variant="outlined" ref={inputRef} defaultValue={defaultValue} {...rest} />
+  return (
+    <input
+      variant="outlined"
+      ref={inputRef}
+      name={name}
+      defaultValue={defaultValue}
+      {...rest}
+    />
+  )
 }
 
 Input.defaultProps = {
