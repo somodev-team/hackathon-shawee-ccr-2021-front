@@ -8,6 +8,7 @@ export const Form = ({ onSubmit, children, schema }) => {
   const formRef = useRef(null)
 
   const handleSubmit = async data => {
+    console.log(data)
     try {
       // Remove all previous errors
       formRef.current.setErrors({})

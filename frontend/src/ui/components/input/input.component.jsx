@@ -27,7 +27,15 @@ const withouMask = {
   maskChar: undefined,
 }
 
-export const Input = ({ name, type, label, mask: _mask, ...rest }) => {
+export const Input = ({
+  name,
+  type,
+  label,
+  mask: _mask,
+  onChange,
+  onRef,
+  ...rest
+}) => {
   const inputRef = useRef(null)
   const { fieldName, defaultValue, registerField, error } = useField(name)
   const { mask, maskChar } = useMemo(
@@ -45,7 +53,9 @@ export const Input = ({ name, type, label, mask: _mask, ...rest }) => {
     inputRef.current.value = type === 'checkbox' ? false : ''
   }, [fieldName, registerField])
 
-  const handleChange = ({ target }) => {
+  const handleChange = event => {
+    const { target } = event
+
     if (!inputRef.current) {
       return
     }
@@ -54,6 +64,18 @@ export const Input = ({ name, type, label, mask: _mask, ...rest }) => {
       inputRef.current.value = target.checked
     } else {
       inputRef.current.value = target.value
+    }
+
+    if (onChange) {
+      onChange(event)
+    }
+  }
+
+  const handleRef = input => {
+    inputRef.current = input
+
+    if (onRef) {
+      onRef(input)
     }
   }
 
@@ -65,7 +87,7 @@ export const Input = ({ name, type, label, mask: _mask, ...rest }) => {
         name={name}
         type={type}
         defaultValue={defaultValue}
-        ref={inputRef}
+        ref={handleRef}
         mask={mask}
         maskChar={maskChar}
         {...rest}

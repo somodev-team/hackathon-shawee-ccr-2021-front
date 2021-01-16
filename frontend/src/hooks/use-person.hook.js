@@ -8,7 +8,6 @@ export const usePerson = () => {
   const updateProfile = async data => {
     const [day, month, year] = data.bornDate.split('/')
     data.bornDate = new Date([month, day, year].join('/')).toISOString()
-    data.areasOfInterest = ['cs', 'tibia']
 
     await api.post('update', data)
   }
