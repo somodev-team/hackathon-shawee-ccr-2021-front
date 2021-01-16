@@ -21,14 +21,17 @@ export const MultiCheckbox = ({ name, options }) => {
   const renderOptions = () => {
     return options.map((area, key) => {
       return (
-        <input
-          type="checkbox"
-          onChange={handleChange}
-          key={key}
-          name={name}
-          label={area}
-          value={area}
-        />
+        <>
+          {area}
+          <input
+            type="checkbox"
+            onChange={handleChange}
+            key={key}
+            name={name}
+            label={area}
+            value={area}
+          />
+        </>
       )
     })
   }
@@ -37,6 +40,7 @@ export const MultiCheckbox = ({ name, options }) => {
     <>
       {renderOptions()}
       <Input
+        type="hidden"
         name={name}
         value={values}
         onRef={input => (inputRef.current = input)}
