@@ -1,4 +1,4 @@
-import { IUser } from '../../user.model';
+import { IUser } from '../../user.model'
 
 export interface IUserCreateDTO
-  extends Pick<IUser, 'email' | 'type' | 'password'> {}
+  extends Pick<IUser, 'username' | 'type' | 'password'> {}

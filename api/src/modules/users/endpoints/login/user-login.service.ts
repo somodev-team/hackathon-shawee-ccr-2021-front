@@ -11,7 +11,7 @@ export class UserLoginService {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute(data: IUserLoginDTO): Promise<string> {
-    const user = await this.usersRepository.findByEmail(data.email)
+    const user = await this.usersRepository.findByUsername(data.username)
     if (!user) {
       throw Error('users.login.wrong-credentials')
     } else {
@@ -25,7 +25,7 @@ export class UserLoginService {
       const jwtObject: IJwtObject = {
         user: {
           id: user.id,
-          email: user.email,
+          username: user.username,
         },
       }
       const token = jwt.sign(jwtObject, JWT_SECRET)
