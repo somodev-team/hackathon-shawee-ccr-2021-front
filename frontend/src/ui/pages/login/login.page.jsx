@@ -3,10 +3,15 @@ import './login.style.scss'
 import { createRoute } from 'app-route-manager'
 import { Form } from '@unform/web'
 import { Input } from 'app-components'
+import { useAuth, useRoute } from 'app-hooks'
 
 export const Login = () => {
-  const handleSubmit = data => {
-    console.log(data)
+  const { login } = useAuth()
+  const { goToHome } = useRoute()
+  
+  const handleSubmit = async data => {
+    await login(data)
+    goToHome()
   }
 
   return (
