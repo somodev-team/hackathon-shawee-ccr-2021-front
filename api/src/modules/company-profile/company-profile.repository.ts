@@ -1,11 +1,16 @@
 import Knex from 'knex'
+import { IPaginateParams, IWithPagination } from 'knex-paginate'
 import { validadeObject } from '../../utils/validation-functions'
 import { ICompanyProfile, CompanyProfile } from './company-profile.model'
+import { ICompanyProfileListDTO } from './endpoints/list/company-profile-list.dto'
 
 export interface ICompanyProfileRepository {
   findByUserId(userId: string): Promise<CompanyProfile | undefined>
   insert(companyProfileData: ICompanyProfile): Promise<CompanyProfile>
   update(companyProfileData: ICompanyProfile): Promise<CompanyProfile>
+  list(
+    paginationParams: IPaginateParams
+  ): Promise<IWithPagination<ICompanyProfileListDTO[]>>
 }
 
 export class CompanyProfileRepository implements ICompanyProfileRepository {
@@ -56,5 +61,28 @@ export class CompanyProfileRepository implements ICompanyProfileRepository {
       })
 
     return companyProfile
+  }
+
+  async list(
+    paginationParams: IPaginateParams
+  ): Promise<IWithPagination<ICompanyProfileListDTO[]>> {
+    const result = await this.database
+      .select()
+      .column(
+        'company_profile.user_id',
+        'company_profile.name',
+        'users.username'
+      )
+      .from('company_profile')
+      .join('users', 'company_profile.user_id', '=', 'users.id')
+      .paginate(paginationParams)
+
+    result.data = result.data.map(data => ({
+      id: data.id,
+      name: data.name,
+      username: data.username,
+    }))
+
+    return result
   }
 }
