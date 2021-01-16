@@ -9,12 +9,10 @@ export class DomainsListController {
 
   async handle(req: Request, res: Response, next: any): Promise<Response> {
     const params = getPaginationParamsFromRequest(req)
+    const filter = req.query.filter as string
     const jwtData = getJWTfromRequest(req)
     try {
-      const result = await this.companyProfileList.execute(
-        jwtData.user.id,
-        params
-      )
+      const result = await this.companyProfileList.execute(params, filter)
       return res.json(result)
     } catch (error) {
       return next(createHttpError(400, error))

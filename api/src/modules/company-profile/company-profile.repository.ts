@@ -9,7 +9,8 @@ export interface ICompanyProfileRepository {
   insert(companyProfileData: ICompanyProfile): Promise<CompanyProfile>
   update(companyProfileData: ICompanyProfile): Promise<CompanyProfile>
   list(
-    paginationParams: IPaginateParams
+    paginationParams: IPaginateParams,
+    filter?: string
   ): Promise<IWithPagination<ICompanyProfileListDTO[]>>
 }
 
@@ -64,7 +65,8 @@ export class CompanyProfileRepository implements ICompanyProfileRepository {
   }
 
   async list(
-    paginationParams: IPaginateParams
+    paginationParams: IPaginateParams,
+    filter?: string
   ): Promise<IWithPagination<ICompanyProfileListDTO[]>> {
     const result = await this.database
       .select()
@@ -75,9 +77,16 @@ export class CompanyProfileRepository implements ICompanyProfileRepository {
       )
       .from('company_profile')
       .join('users', 'company_profile.user_id', '=', 'users.id')
+      .modify(queryBuilder => {
+        if (filter !== undefined) {
+          queryBuilder
+            .where('company_profile.name', 'like', `%${filter}%`)
+            .orWhere('users.username', 'like', `%${filter}%`)
+        }
+      })
       .paginate(paginationParams)
 
-    result.data = result.data.map(data => ({
+    result.data = result.data.map((data: any) => ({
       id: data.id,
       name: data.name,
       username: data.username,

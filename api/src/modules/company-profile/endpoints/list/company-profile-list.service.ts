@@ -6,10 +6,10 @@ export class CompanyProfileListService {
   constructor(private companyProfileRepository: ICompanyProfileRepository) {}
 
   async execute(
-    userId: string,
-    params: IPaginateParams
+    params: IPaginateParams,
+    filter?: string
   ): Promise<IWithPagination<ICompanyProfileListDTO[]>> {
-    const result = await this.companyProfileRepository.list(params)
+    const result = await this.companyProfileRepository.list(params, filter)
     return result
   }
 }
