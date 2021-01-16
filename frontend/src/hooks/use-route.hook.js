@@ -3,17 +3,15 @@ import { history } from 'app-helpers'
 export const useRoute = () => {
   const goTo = (path, config) => history.push(path, config)
 
-  const goToLogin = config => goTo('/login', config)
-  const goToHome = config => goTo('/home', config)
-  const goToRegister = config => goTo('/register', config)
-
-  const goBack = () => history.goBack()
-
   return {
-    goToLogin,
-    goToHome,
-    goToRegister,
     goTo,
-    goBack,
+    goBack: () => history.goBack(),
+
+    goToStart: config => goTo('/start', config),
+    goToLogin: config => goTo('/login', config),
+    goToRegister: config => goTo('/register', config),
+    goToHome: config => goTo('/home', config),
+    goToUpdateProfile: config => goTo('/update-profile', config),
+    goToProfile: config => goTo('/profile', config),
   }
 }

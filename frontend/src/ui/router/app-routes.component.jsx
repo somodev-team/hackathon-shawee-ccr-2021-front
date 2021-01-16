@@ -19,11 +19,7 @@ export const AppRoutes = () => {
 
   return (
     <Router history={history}>
-      <Switch>
-        <Redirect exact from="/" to="/home" />
-
-        {mapRoutes()}
-      </Switch>
+      <Switch>{mapRoutes()}</Switch>
     </Router>
   )
 }
