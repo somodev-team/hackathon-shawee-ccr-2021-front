@@ -16,6 +16,11 @@ export class PersonProfileRepository implements IPersonProfileRepository {
       .insert({
         user_id: personProfile.userId,
         name: personProfile.name,
+        born_date: personProfile.born_date,
+        phone: personProfile.phone,
+        address_state: personProfile.address_state,
+        address_city: personProfile.address_city,
+        pwd: personProfile.pwd,
       })
       .into('person_profile');
 
