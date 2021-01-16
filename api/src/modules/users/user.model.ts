@@ -1,25 +1,30 @@
-import { v4 as uuidv4 } from 'uuid'
-import { IsEmail, IsUUID, MinLength } from 'class-validator'
+import { v4 as uuidv4 } from 'uuid';
+import { IsEmail, IsIn, IsUUID, MinLength } from 'class-validator';
 
 export interface IUser {
-  id?: string
-  email: string
-  password: string
+  id?: string;
+  type: string;
+  email: string;
+  password: string;
 }
 
 export class User implements IUser {
   @IsUUID('4')
-  id: string
+  id: string;
+
+  @IsIn(['person', 'complany'])
+  type: string;
 
   @IsEmail()
-  email: string
+  email: string;
 
   @MinLength(6)
-  password: string
+  password: string;
 
   constructor(props: IUser) {
-    this.id = props.id || uuidv4()
-    this.email = props.email
-    this.password = props.password
+    this.id = props.id || uuidv4();
+    this.type = props.type;
+    this.email = props.email;
+    this.password = props.password;
   }
 }

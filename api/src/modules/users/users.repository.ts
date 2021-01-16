@@ -1,9 +1,9 @@
-import { IUser, User } from './user.model'
-import Knex from 'knex'
+import { IUser, User } from './user.model';
+import Knex from 'knex';
 
 export interface IUsersRepository {
-  findByEmail(email: string): Promise<User | undefined>
-  create(user: IUser): Promise<User>
+  findByEmail(email: string): Promise<User | undefined>;
+  create(user: IUser): Promise<User>;
 }
 
 export class UsersRepository implements IUsersRepository {
@@ -14,19 +14,20 @@ export class UsersRepository implements IUsersRepository {
       .select('*')
       .from<User>('users')
       .where('email', email)
-      .first()
-    return result
+      .first();
+    return result;
   }
 
   async create(userData: IUser): Promise<User> {
-    const user = new User(userData)
+    const user = new User(userData);
     await this.database
       .insert({
         id: user.id,
+        type: user.type,
         email: user.email,
         password: user.password,
       })
-      .into('users')
-    return user
+      .into('users');
+    return user;
   }
 }
