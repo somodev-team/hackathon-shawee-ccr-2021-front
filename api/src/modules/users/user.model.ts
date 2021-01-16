@@ -1,9 +1,17 @@
 import { v4 as uuidv4 } from 'uuid'
-import { IsAlphanumeric, IsIn, IsUUID, MinLength } from 'class-validator'
+import {
+  IsAlphanumeric,
+  IsIn,
+  IsUUID,
+  MaxLength,
+  MinLength,
+} from 'class-validator'
+
+export type UserTypeType = 'person' | 'company'
 
 export interface IUser {
   id?: string
-  type: string
+  type: UserTypeType
   username: string
   password: string
 }
@@ -13,10 +21,11 @@ export class User implements IUser {
   id: string
 
   @IsIn(['person', 'company'])
-  type: string
+  type: UserTypeType
 
   @IsAlphanumeric()
   @MinLength(4)
+  @MaxLength(20)
   username: string
 
   @MinLength(6)

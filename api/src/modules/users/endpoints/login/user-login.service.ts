@@ -26,6 +26,7 @@ export class UserLoginService {
         user: {
           id: user.id,
           username: user.username,
+          type: user.type,
         },
       }
       const token = jwt.sign(jwtObject, JWT_SECRET)

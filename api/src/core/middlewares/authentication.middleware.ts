@@ -1,5 +1,6 @@
 import passport from 'passport'
 import { Strategy, ExtractJwt } from 'passport-jwt'
+import { UserTypeType } from '../../modules/users/user.model'
 
 export const JWT_SECRET = `${process.env.JWT_SECRET}`
 
@@ -7,6 +8,7 @@ export interface IJwtObject {
   user: {
     id: string
     username: string
+    type: UserTypeType
   }
 }
 
