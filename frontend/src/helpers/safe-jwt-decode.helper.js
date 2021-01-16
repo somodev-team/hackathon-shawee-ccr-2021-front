@@ -6,7 +6,7 @@ export const safeJWTDecode = token => {
     return jwtDecode(token)
   } catch (e) {
     removeToken()
-    
+
     return null
   }
 }

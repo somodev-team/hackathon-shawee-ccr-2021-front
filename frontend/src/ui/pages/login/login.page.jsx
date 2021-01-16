@@ -8,7 +8,7 @@ import { useAuth, useRoute } from 'app-hooks'
 export const Login = () => {
   const { login } = useAuth()
   const { goToHome } = useRoute()
-  
+
   const handleSubmit = async data => {
     await login(data)
     goToHome()
