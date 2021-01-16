@@ -1,28 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './update-profile.style.scss'
-import { Button, Input, Select } from 'app-components'
-import { Form } from '@unform/web'
+import { Button, Form } from 'app-components'
 import { usePerson, useRoute } from 'app-hooks'
-import { STATES } from 'app-constants'
-
-const STEPS = [
-  () => <Input autoFocus label="Nome" name="name" />,
-  () => (
-    <Input
-      autoFocus
-      label="Data de Nascimento"
-      name="bornDate"
-      mask="99/99/9999"
-    />
-  ),
-  () => (
-    <Input autoFocus label="Telefone" name="phone" mask="(99) 99999-9999" />
-  ),
-  () => <Select label="Estado" name="addressState" options={STATES} />,
-  () => <Input autoFocus label="Cidade" name="addressCity" />,
-  () => <Input autoFocus label="PCD" name="pwd" type="checkbox" />,
-]
+import { STEPS } from './steps'
 
 export const UpdateProfile = () => {
   const { updateProfile } = usePerson()
@@ -31,7 +12,8 @@ export const UpdateProfile = () => {
   const [newProfile, setNewProfile] = useState({})
 
   const isLast = useMemo(() => step === STEPS.length - 1, [step])
-  const StepComponent = useMemo(() => STEPS[step], [step])
+  const StepComponent = useMemo(() => STEPS[step].component, [step])
+  const schema = useMemo(() => STEPS[step].schema, [step])
 
   const handleNext = async data => {
     if (isLast) {
@@ -54,7 +36,7 @@ export const UpdateProfile = () => {
     <div className="update-profile">
       <h1>Atualizar Perfil</h1>
 
-      <Form onSubmit={handleNext}>
+      <Form schema={schema} onSubmit={handleNext}>
         <StepComponent />
 
         <Button>{isLast ? 'Finalizar' : 'Próximo'}</Button>

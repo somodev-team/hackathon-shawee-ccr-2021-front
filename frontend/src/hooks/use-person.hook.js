@@ -1,6 +1,8 @@
+import { useGlobalLoggedUser } from 'app-providers'
 import { useApi } from './use-api.hook'
 
 export const usePerson = () => {
+  const [loggedUser] = useGlobalLoggedUser()
   const api = useApi('person-profile')
 
   const updateProfile = async data => {
@@ -11,7 +13,12 @@ export const usePerson = () => {
     await api.post('update', data)
   }
 
+  const getProfile = async id => {
+    return await api.get(id || loggedUser.id)
+  }
+
   return {
     updateProfile,
+    getProfile,
   }
 }

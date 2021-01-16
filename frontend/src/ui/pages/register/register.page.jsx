@@ -2,8 +2,13 @@ import React from 'react'
 import { createRoute } from 'app-route-manager'
 import './register.style.scss'
 import { useAuth, useRoute } from 'app-hooks'
-import { Form } from '@unform/web'
-import { Input } from 'app-components'
+import { Form, Input } from 'app-components'
+import { Yup } from 'app-helpers'
+
+const schema = Yup.object().shape({
+  username: Yup.string().min(4).max(20).required(),
+  password: Yup.string().min(6).max(255).required(),
+})
 
 export const Register = () => {
   const { register } = useAuth()
@@ -18,8 +23,8 @@ export const Register = () => {
     <div className="register">
       <h1>Registro</h1>
 
-      <Form onSubmit={handleSubmit}>
-        <Input label="E-mail" name="email" type="email" />
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <Input label="Usuário" name="username" mask="username" />
         <Input label="Password" name="password" type="password" />
 
         <Input

@@ -1,11 +1,39 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { useField } from '@unform/core'
 import InputMask from 'react-input-mask'
 import PropTypes from 'prop-types'
 
-export const Input = ({ name, type, label, ...rest }) => {
+import './input.style.scss'
+
+const userMask = Array(20).fill('*').join('')
+
+const TYPES = {
+  phone: {
+    mask: '(99) 99999-9999',
+    maskChar: '_',
+  },
+  bornDate: {
+    mask: '99/99/9999',
+    maskChar: '_',
+  },
+  username: {
+    mask: userMask,
+    maskChar: '',
+  },
+}
+
+const withouMask = {
+  mask: undefined,
+  maskChar: undefined,
+}
+
+export const Input = ({ name, type, label, mask: _mask, ...rest }) => {
   const inputRef = useRef(null)
   const { fieldName, defaultValue, registerField, error } = useField(name)
+  const { mask, maskChar } = useMemo(
+    () => (_mask ? TYPES[_mask] || _mask : withouMask),
+    [_mask]
+  )
 
   useEffect(() => {
     registerField({
@@ -13,6 +41,8 @@ export const Input = ({ name, type, label, ...rest }) => {
       ref: inputRef.current,
       path: 'value',
     })
+
+    inputRef.current.value = type === 'checkbox' ? false : ''
   }, [fieldName, registerField])
 
   const handleChange = ({ target }) => {
@@ -28,7 +58,7 @@ export const Input = ({ name, type, label, ...rest }) => {
   }
 
   return (
-    <label>
+    <label className="input">
       {label}
       <InputMask
         onChange={handleChange}
@@ -36,8 +66,11 @@ export const Input = ({ name, type, label, ...rest }) => {
         type={type}
         defaultValue={defaultValue}
         ref={inputRef}
+        mask={mask}
+        maskChar={maskChar}
         {...rest}
       />
+      {error && <span className="error">{error}</span>}
     </label>
   )
 }
