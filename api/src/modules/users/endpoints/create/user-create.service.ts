@@ -11,7 +11,9 @@ export class UserCreateService {
 
   async execute(data: IUserCreateDTO): Promise<User> {
     // Unique user
-    const existingUser = await this.usersRepository.findByEmail(data.email)
+    const existingUser = await this.usersRepository.findByUsername(
+      data.username
+    )
     if (existingUser) {
       throw new Error('users.register.user-already-registered')
     }

@@ -1,11 +1,17 @@
-import express from 'express';
-import { personProfileUpdateController } from './update';
+import express from 'express'
+import { personProfileGetController } from './get'
+import { personProfileUpdateController } from './update'
 
-const router = express.Router();
+const router = express.Router()
 
 router.post(
   '/update',
   personProfileUpdateController.handle.bind(personProfileUpdateController)
-);
+)
 
-export { router };
+router.get(
+  '/:userId',
+  personProfileGetController.handle.bind(personProfileGetController)
+)
+
+export { router }

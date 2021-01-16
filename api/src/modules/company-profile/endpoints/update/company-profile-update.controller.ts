@@ -1,20 +1,22 @@
 import { Request, Response } from 'express'
 import createHttpError from 'http-errors'
 import { getJWTfromRequest } from '../../../../core/utils/get-jwt-from-request'
-import { IPersonProfileUpdateDTO } from './person-profile-update.dto'
-import { PersonProfileUpdateService } from './person-profile-update.service'
+import { ICompanyProfileUpdateDTO } from './company-profile-update.dto'
+import { CompanyProfileUpdateService } from './company-profile-update.service'
 
-export class PersonProfileUpdateController {
-  constructor(private personProfileUpdateService: PersonProfileUpdateService) {}
+export class CompanyProfileUpdateController {
+  constructor(
+    private companyProfileUpdateService: CompanyProfileUpdateService
+  ) {}
 
   async handle(req: Request, res: Response, next: any): Promise<Response> {
     const jwtData = getJWTfromRequest(req)
-    if (jwtData.user.type !== 'person') {
+    if (jwtData.user.type !== 'company') {
       return next(createHttpError(401, Error('user-type-not-authorized')))
     }
     try {
-      await this.personProfileUpdateService.execute({
-        ...(req.body as IPersonProfileUpdateDTO),
+      await this.companyProfileUpdateService.execute({
+        ...(req.body as ICompanyProfileUpdateDTO),
         userId: jwtData.user.id,
       })
     } catch (error) {
