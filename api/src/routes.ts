@@ -2,6 +2,7 @@ import express from 'express';
 import passport from 'passport';
 import { getAuthenticationMiddleware } from './core/middlewares/authentication.middleware';
 import { router as usersRouter } from './modules/users/endpoints';
+import { router as personProfileRouter } from './modules/person-profile/endpoints';
 
 export function getAppRouter() {
   const router = express.Router();
@@ -12,6 +13,8 @@ export function getAppRouter() {
   // Private routes
   router.use(getAuthenticationMiddleware());
   router.use(passport.authenticate('jwt', { session: false }));
+
+  router.use('/person-profile', personProfileRouter);
 
   return router;
 }
