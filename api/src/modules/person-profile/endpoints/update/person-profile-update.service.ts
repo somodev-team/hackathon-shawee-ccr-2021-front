@@ -12,11 +12,21 @@ export class PersonProfileUpdateService {
       const personProfile = new PersonProfile(data);
       await validadeObject(personProfile);
 
-      // To Do (Update or Insert)
-      const createdPersonProfile = await this.personProfileRepository.insert(
-        personProfile
+      // Update if exists
+      const existingProfile = await this.personProfileRepository.findByUserId(
+        data.userId
       );
-      return createdPersonProfile;
+      if (existingProfile) {
+        const updatedPersonProfile = await this.personProfileRepository.update(
+          personProfile
+        );
+        return updatedPersonProfile;
+      } else {
+        const createdPersonProfile = await this.personProfileRepository.insert(
+          personProfile
+        );
+        return createdPersonProfile;
+      }
     } catch (error) {
       throw error;
     }

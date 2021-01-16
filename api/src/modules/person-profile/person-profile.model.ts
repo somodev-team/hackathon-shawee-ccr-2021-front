@@ -1,18 +1,21 @@
 import {
   IsBoolean,
   IsDate,
+  IsDateString,
   IsNotEmpty,
   IsString,
   IsUUID,
+  Length,
+  MaxLength,
 } from 'class-validator';
 
 export interface IPersonProfile {
   userId: string;
   name: string;
-  born_date: string;
+  bornDate: Date;
   phone: string;
-  address_state: string;
-  address_city: string;
+  addressState: string;
+  addressCity: string;
   pwd: string;
 }
 
@@ -25,20 +28,22 @@ export class PersonProfile implements IPersonProfile {
   name: string;
 
   @IsDate()
-  @IsNotEmpty()
-  born_date: string;
+  bornDate: Date;
 
   @IsString()
   @IsNotEmpty()
+  @MaxLength(40)
   phone: string;
 
   @IsString()
   @IsNotEmpty()
-  address_state: string;
+  @Length(2)
+  addressState: string;
 
   @IsString()
   @IsNotEmpty()
-  address_city: string;
+  @MaxLength(40)
+  addressCity: string;
 
   @IsBoolean()
   pwd: string;
@@ -46,10 +51,10 @@ export class PersonProfile implements IPersonProfile {
   constructor(props: IPersonProfile) {
     this.userId = props.userId;
     this.name = props.name;
-    this.born_date = props.born_date;
+    this.bornDate = new Date(props.bornDate);
     this.phone = props.phone;
-    this.address_state = props.address_state;
-    this.address_city = props.address_city;
+    this.addressState = props.addressState;
+    this.addressCity = props.addressCity;
     this.pwd = props.pwd;
   }
 }
