@@ -1,5 +1,5 @@
 {
-  "{./src/**/*.js,./src/**/*.jsx}": [
+  "{src/**/*.js,src/**/*.jsx}": [
     "prettier --config .prettierrc --write",
     "git add"
   ]
