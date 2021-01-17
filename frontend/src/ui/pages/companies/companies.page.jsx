@@ -8,10 +8,12 @@ export const Companies = () => {
   const [companies, setCompanies] = useState([])
 
   useEffect(() => {
-    ;(async () => {
+    const fetch = async () => {
       const companies = await getCompanies()
       setCompanies(companies)
-    })()
+    }
+
+    fetch()
   }, [])
 
   return (
