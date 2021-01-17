@@ -1,4 +1,6 @@
-# Gackathon Shawee CCR 2021
+# Dindo
+
+## Hackathon Shawee CCR 2021
 
 # Rodar todo o projeto
 
