@@ -1,14 +1,14 @@
 <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="20" height="7" rx="2" fill="#898989"/>
-<rect y="8" width="20" height="7" rx="2" fill="#C2C2C2"/>
-<rect y="16" width="20" height="7" rx="2" fill="#898989"/>
-<rect x="1" y="1" width="5" height="5" rx="1" fill="white"/>
-<rect x="1" y="9" width="5" height="5" rx="1" fill="white"/>
-<rect x="1" y="17" width="5" height="5" rx="1" fill="white"/>
-<rect x="7" y="2" width="11" height="1" rx="0.5" fill="#F5F6F6"/>
-<rect x="7" y="10" width="11" height="1" rx="0.5" fill="#F5F6F6"/>
-<rect x="7" y="18" width="11" height="1" rx="0.5" fill="#F5F6F6"/>
-<rect x="7" y="4" width="5" height="1" rx="0.5" fill="#F5F6F6"/>
-<rect x="7" y="12" width="5" height="1" rx="0.5" fill="#F5F6F6"/>
-<rect x="7" y="20" width="5" height="1" rx="0.5" fill="#F5F6F6"/>
+<rect x="0.5" y="0.5" width="19" height="6" rx="1.5" fill="#D8D8D8" stroke="#546A7B"/>
+<rect x="0.5" y="8.5" width="19" height="6" rx="1.5" fill="#F5F6F6" stroke="#546A7B"/>
+<path d="M2 16.5H18C18.8284 16.5 19.5 17.1716 19.5 18V21C19.5 21.8284 18.8284 22.5 18 22.5H2C1.17157 22.5 0.5 21.8284 0.5 21V18C0.5 17.1716 1.17157 16.5 2 16.5Z" stroke="#546A7B"/>
+<rect x="2.5" y="2.5" width="3" height="2" rx="0.5" fill="white" stroke="#546A7B"/>
+<rect x="2.5" y="10.5" width="3" height="2" rx="0.5" fill="white" stroke="#546A7B"/>
+<rect x="2.5" y="18.5" width="3" height="2" rx="0.5" fill="white" stroke="#546A7B"/>
+<rect x="7.25" y="2.25" width="10.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
+<rect x="7.25" y="10.25" width="10.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
+<rect x="7.25" y="18.25" width="10.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
+<rect x="7.25" y="4.25" width="4.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
+<rect x="7.25" y="12.25" width="4.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
+<rect x="7.25" y="20.25" width="4.5" height="0.5" rx="0.25" fill="#F5F6F6" stroke="#546A7B" stroke-width="0.5"/>
 </svg>
