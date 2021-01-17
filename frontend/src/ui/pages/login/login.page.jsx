@@ -3,7 +3,7 @@ import './login.style.scss'
 import { createRoute } from 'app-route-manager'
 import { Form, Input, Button, BackButton } from 'app-components'
 import { useAuth, useRoute } from 'app-hooks'
-import Pablo from '../../static/img/pablo.png'
+import Pablo from '../../static/img/pablo.js'
 export const Login = () => {
   const { login } = useAuth()
   const { goToHome } = useRoute()

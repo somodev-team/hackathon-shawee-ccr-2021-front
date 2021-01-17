@@ -4,7 +4,7 @@ import './register.style.scss'
 import { useAuth, useRoute } from 'app-hooks'
 import { Form, Input, Button, BackButton } from 'app-components'
 import { Yup } from 'app-helpers'
-import Pablo from '../../static/img/pablo.png'
+import Pablo from '../../static/img/pablo.js'
 
 const schema = Yup.object().shape({
   username: Yup.string().min(4).max(20).required(),

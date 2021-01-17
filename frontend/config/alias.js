@@ -10,6 +10,6 @@ module.exports = {
   'app-helpers': `${paths.appSrc}/helpers`,
   'app-static': `${paths.appSrc}/ui/static`,
   'app-styles': `${paths.appSrc}/ui/static/styles`,
-  'app-images': `${paths.appSrc}/ui/static/images`,
+  'app-images': `${paths.appSrc}/ui/static/img`,
   'app-route-manager':  `${paths.appSrc}/ui/router/route-manager`,
 }
