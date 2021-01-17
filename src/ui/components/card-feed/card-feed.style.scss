@@ -12,8 +12,8 @@
   }
 
   &__avatar {
-    min-height: 90px;
-    min-width: 90px;
+    height: 90px;
+    width: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,7 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
+    flex: 1;
 
     strong {
       color: $color-gray-dark;

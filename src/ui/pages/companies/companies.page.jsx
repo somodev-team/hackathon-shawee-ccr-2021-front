@@ -29,11 +29,14 @@ export const Companies = () => {
           onClick={() => goToCompany(c.userId)}
         >
           <div className="companies__avatar">
-            {/* <img src={require(`../../static/img/${c.logo}.png`)} alt={c.nome} /> */}
+            <img
+              src={require(`../../static/img/logos/${c.name}.png`)}
+              alt={c.name}
+            />
           </div>
           <div className="companies__content">
             <h1 className="companies__title">{c.name}</h1>
-            <span>{c.afilhados}</span>
+            <span>{c.godChildrens} Afilhados</span>
           </div>
         </div>
       )
@@ -47,7 +50,7 @@ export const Companies = () => {
         <SearchField />
         {renderCompaniesList(companies)}
 
-        <div className="companies__item">
+        {/* <div className="companies__item">
           <div className="companies__avatar">
             <img src={Coca} alt="Coca" />
           </div>
@@ -65,7 +68,7 @@ export const Companies = () => {
             <h1 className="companies__title">Dell Inc</h1>
             <span>122 Afilhados</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

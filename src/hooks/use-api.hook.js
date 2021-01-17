@@ -1,13 +1,18 @@
 import axios from 'axios'
 import { CONFIGS } from 'app-constants'
 import { getToken } from 'app-helpers'
+import { useGlobalLoader } from 'app-providers'
 
 const instance = axios.create({
   baseURL: CONFIGS.API_URL,
 })
 
 export const useApi = path => {
+  const [loaderVisible, setLoaderVisible] = useGlobalLoader()
+
   const callApi = async ({ url, data, ...config }) => {
+    setLoaderVisible(true)
+
     config.url = buildUrl(url)
     config.data = buildData(data)
 
@@ -19,9 +24,12 @@ export const useApi = path => {
       }
     }
 
-    const result = await instance.request(config)
-
-    return result.data
+    try {
+      const result = await instance.request(config)
+      return result.data
+    } finally {
+      setLoaderVisible(false)
+    }
   }
 
   const buildData = data => data || null

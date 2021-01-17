@@ -54,7 +54,10 @@ export const Company = () => {
         <div className="card mt-5">
           <div className="companies__item">
             <div className="companies__avatar">
-              <img src={Coca} alt="Coca" />
+              <img
+                src={require(`../../static/img/logos/${company.name}.png`)}
+                alt={company.name}
+              />
             </div>
             <div className="companies__content justify-content-between w-100">
               <h1 className="companies__title">{company.name}</h1>

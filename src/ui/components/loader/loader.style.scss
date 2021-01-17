@@ -1,0 +1,30 @@
+.loader {
+  background: rgba(#fff, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & ~ * {
+    filter: blur(2px);
+  }
+
+  &__logo {
+    animation: pulse 1s linear infinite;
+    width: 120px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
