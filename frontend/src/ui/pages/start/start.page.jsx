@@ -22,11 +22,11 @@ export const Start = () => {
           </h1>
         </div>
         <div className="mb-3">
-          <Button className="btn btn-primary" onClick={() => goToRegister()}>
-            Começar Agora
+          <Button className="btn btn-primary" onClick={() => goToLogin()}>
+            Entrar
           </Button>
-          <Button className="btn btn-secondary" onClick={() => goToLogin()}>
-            Já tenho uma conta
+          <Button className="btn btn-secondary" onClick={() => goToRegister()}>
+            Cadastre-se
           </Button>
         </div>
       </div>
