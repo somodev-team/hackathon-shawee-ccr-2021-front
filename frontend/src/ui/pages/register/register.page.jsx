@@ -12,11 +12,11 @@ const schema = Yup.object().shape({
 
 export const Register = () => {
   const { register } = useAuth()
-  const { goToHome } = useRoute()
+  const { goToUpdateProfile } = useRoute()
 
   const handleSubmit = async data => {
     await register(data)
-    goToHome()
+    goToUpdateProfile()
   }
 
   return (
