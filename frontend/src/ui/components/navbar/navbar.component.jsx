@@ -1,7 +1,7 @@
 import React from 'react'
 import './navbar.style.scss'
 import Feed from '../../static/img/feed.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Companies from '../../static/img/companies.svg'
 import Chat from '../../static/img/chat.svg'
 import User from '../../static/img/user.svg'
@@ -9,21 +9,21 @@ import User from '../../static/img/user.svg'
 export const Navbar = () => {
   return (
     <div className="navbar">
-      <Link to="/home">
+      <NavLink to="/home" activeClassName="selected">
         <img src={Feed} alt="Feed" />
-      </Link>
+      </NavLink>
 
-      <Link to="/companies">
+      <NavLink to="/companies" activeClassName="selected">
         <img src={Companies} alt="Feed" />
-      </Link>
+      </NavLink>
 
-      <Link to="/chat">
+      <NavLink to="/chat" activeClassName="selected">
         <img src={Chat} alt="Feed" />
-      </Link>
+      </NavLink>
 
-      <Link to="/profile">
+      <NavLink to="/profile" activeClassName="selected">
         <img src={User} alt="Feed" />
-      </Link>
+      </NavLink>
     </div>
   )
 }
