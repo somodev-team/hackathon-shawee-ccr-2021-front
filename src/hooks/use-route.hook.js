@@ -13,5 +13,6 @@ export const useRoute = () => {
     goToHome: config => goTo('/home', config),
     goToUpdateProfile: config => goTo('/update-profile', config),
     goToCompany: id => goTo(`/company/${id}`),
+    goToCompanies: id => goTo(`/companies`),
   }
 }
