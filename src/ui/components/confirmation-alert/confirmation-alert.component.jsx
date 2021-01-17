@@ -3,7 +3,7 @@ import './confirmation-alert.style.scss'
 import Happy from '../../static/img/happy.svg'
 import { CardFind } from 'app-components'
 
-export const ConfirmationAlert = ({ onClick }) => {
+export const ConfirmationAlert = ({ onClick, companyName }) => {
   return (
     <>
       <div className="overlay"></div>
@@ -11,8 +11,8 @@ export const ConfirmationAlert = ({ onClick }) => {
         <CardFind
           img={Happy}
           title="WOW!"
-          text="A empresa que você solicitou topo ser seu padrinho"
-          buttonText="Entre em contato"
+          text={`A ${companyName} topou ser seu dindo! 😁`}
+          buttonText="Iniciar conversa"
           onClick={onClick}
         />
       </div>

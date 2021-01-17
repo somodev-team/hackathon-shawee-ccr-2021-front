@@ -59,7 +59,9 @@ export const Company = () => {
 
   return (
     <div className="page company">
-      {showAlert && <ConfirmationAlert onClick={hideModal} />}
+      {showAlert && (
+        <ConfirmationAlert companyName={company.name} onClick={hideModal} />
+      )}
       <div className="scroll container">
         <BackButton />
         <div className="card mt-5">

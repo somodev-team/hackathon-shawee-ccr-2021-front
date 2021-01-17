@@ -7,8 +7,14 @@
         margin-left: 10px;
     }
 
+    strong {
+      font-size: 30px;
+    }
+
     &__text {
-        font-weight: lighter;
+      font-weight: lighter;
+      font-size: 20px;
+      line-height: 25px;
     }
 }
 
