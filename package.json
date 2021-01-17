@@ -12,6 +12,7 @@
     "postinstall": "npm run install-api && npm run install-frontend",
     "test": "npm run test-api",
     "test-api": "cd api && npm test",
+    "build": "npm run build-api",
     "build-api": "cd api && npm run build",
     "built-api": "node api/dist/api/index.js"
   },
