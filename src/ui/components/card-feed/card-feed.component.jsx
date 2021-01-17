@@ -1,20 +1,19 @@
 import React from 'react'
 import './card-feed.style.scss'
 import { Button } from 'app-components'
-import Coca from '../../static/img/coca.png'
 import Liked from '../../static/img/liked.svg'
 
-export const CardFeed = () => {
+export const CardFeed = ({ img, people, company }) => {
   return (
     <div className="card-feed">
       <div className="card-feed__info">
         <div className="card-feed__avatar">
-          <img src={Coca} alt="Coca" />
+          <img src={img} alt="Coca" />
         </div>
         <div className="card-feed__content">
           <div>
-            <strong>@coke</strong> agora é dindo de{' '}
-            <strong>@luismiguelprs </strong>
+            <strong>@{company}</strong> agora é dindo de{' '}
+            <strong>@{people} </strong>
           </div>
         </div>
       </div>
