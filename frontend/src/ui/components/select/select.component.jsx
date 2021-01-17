@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export const Select = ({ name, type, options, label, ...rest }) => {
   const inputRef = useRef(null)
-  const { fieldName, defaultValue, registerField, error } = useField(name)
+  const { fieldName, defaultValue, registerField } = useField(name)
 
   useEffect(() => {
     registerField({
