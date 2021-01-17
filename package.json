@@ -14,8 +14,7 @@
     "test-api": "cd api && npm test",
     "build": "npm run build-api",
     "build-api": "cd api && npm run build",
-    "built-api": "node api/dist/index.js",
-    "tsc": "tsc"
+    "built-api": "node api/dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,6 @@
     "foreman": "^3.0.1",
     "husky": "^4.3.0",
     "lint-staged": "^10.2.10",
-    "prettier": "^2.1.1",
-    "tsc": "^1.20150623.0"
+    "prettier": "^2.1.1"
   }
 }

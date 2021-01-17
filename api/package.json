@@ -9,8 +9,7 @@
     "prestart": "npm run migrate-database && npm run seed-database",
     "start": "ts-node-dev --require dotenv/config --respawn --ignore-watch node_modules --inspect=0.0.0.0:9222 src/index.ts",
     "api": "node dist/api/index.js",
-    "tsc": "tsc",
-    "build": "npm run tsc -p tsconfig.production.json",
+    "build": "tsc -p tsconfig.production.json",
     "test-undo-migrate-database": "NODE_ENV=testing knex migrate:rollback --all",
     "test-migrate-database": "NODE_ENV=testing knex migrate:latest",
     "pretest": "npm run test-undo-migrate-database && npm run test-migrate-database",
@@ -51,7 +50,6 @@
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.1",
     "ts-node-dev": "^1.0.0-pre.62",
-    "tsc": "^1.20150623.0",
     "typescript": "^4.0.2"
   }
 }
