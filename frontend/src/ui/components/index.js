@@ -10,3 +10,5 @@ export { BackButton } from './back-button/back-button.component'
 export { Navbar } from './navbar/navbar.component'
 export { CardFind } from './card-find/card-find.component'
 export { CardFeed } from './card-feed/card-feed.component'
+
+export { SearchField } from './search-field/search-field.component'

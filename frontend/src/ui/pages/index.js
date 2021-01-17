@@ -6,3 +6,5 @@ export { UpdateProfile } from './update-profile/update-profile.page'
 export { Profile } from './profile/profile.page'
 
 export { Companies } from './companies/companies.page'
+
+export { Company } from './company/company.page'
