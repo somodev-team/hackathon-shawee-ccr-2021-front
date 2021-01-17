@@ -9,6 +9,7 @@ export interface IJwtObject {
     id: string
     username: string
     type: UserTypeType
+    profileDone: boolean
   }
 }
 
