@@ -13,7 +13,7 @@
     "test": "npm run test-api",
     "test-api": "cd api && npm test",
     "build": "npm run build-api",
-    "build-api": "cd api && npm run build",
+    "build-api": "npm run --prefix api build",
     "built-api": "node api/dist/index.js"
   },
   "repository": {
