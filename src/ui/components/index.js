@@ -14,3 +14,5 @@ export { CardFeed } from './card-feed/card-feed.component'
 export { SearchField } from './search-field/search-field.component'
 
 export { Loader } from './loader/loader.component'
+
+export { ConfirmationAlert } from './confirmation-alert/confirmation-alert.component'

@@ -3,6 +3,7 @@ import { createRoute } from 'app-route-manager'
 import { CardFind, CardFeed } from 'app-components'
 import './home.style.scss'
 import { useRoute } from 'app-hooks'
+import OhNo from '../../static/img/ohno.svg'
 
 export const Home = () => {
   const { goToUpdateProfile } = useRoute()
@@ -16,7 +17,13 @@ export const Home = () => {
   return (
     <div className="page">
       <div className="scroll container">
-        <CardFind />
+        <CardFind
+          img={OhNo}
+          title="Oh no!"
+          text="Você ainda não tem um padrinho"
+          buttonText="Encontre seu dindo"
+          buttonAction=""
+        />
         <h1 className="feed-title">Feed de notícias</h1>
         <CardFeed />
         <CardFeed />

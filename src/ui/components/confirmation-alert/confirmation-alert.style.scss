@@ -1,0 +1,37 @@
+.confirmation-alert {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 9;
+  padding: 20px;
+  animation: show 0.4s ease;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(#000, 0.4);
+  z-index: 2;
+  animation: fade 1s ease forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

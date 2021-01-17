@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './company.style.scss'
-import { BackButton } from 'app-components'
-import Coca from '../../static/img/coca.png'
+import { BackButton, Button, ConfirmationAlert } from 'app-components'
 import Blessed from '../../static/img/blessed.svg'
 import { INTEREST_AREAS } from 'app-constants'
 import { useCompany } from 'app-hooks'
@@ -12,6 +11,7 @@ export const Company = () => {
   const { id } = useParams()
   const { getCompany } = useCompany()
   const [company, setCompany] = useState()
+  const [showAlert, setShowAlert] = useState()
 
   useEffect(() => {
     const fetch = async () => {
@@ -47,8 +47,19 @@ export const Company = () => {
     return null
   }
 
+  const handleClick = () => {
+    setTimeout(() => {
+      setShowAlert(true)
+    }, 1000)
+  }
+
+  const hideModal = () => {
+    setShowAlert(false)
+  }
+
   return (
     <div className="page company">
+      {showAlert && <ConfirmationAlert onClick={hideModal} />}
       <div className="scroll container">
         <BackButton />
         <div className="card mt-5">
@@ -74,6 +85,9 @@ export const Company = () => {
           <hr />
           <strong>Sobre</strong>
           <small className="company__about">{company.bio}</small>
+          <Button className="btn btn-primary mt-2" onClick={handleClick}>
+            Solicitar apadrinhamento
+          </Button>
         </div>
         <strong className="company__areas-title">Áreas de atuação</strong>
         <div className="company__areas">

@@ -1,19 +1,20 @@
 import React from 'react'
 import './card-find.style.scss'
 import { Button } from 'app-components'
-import OhNo from '../../static/img/ohno.svg'
 
-export const CardFind = () => {
+export const CardFind = ({ title, img, text, buttonText, onClick }) => {
   return (
     <div className="card-find-wrapper">
       <div className="card-find">
-        <img src={OhNo} alt="oh no" />
+        <img src={img} alt="react" />
         <div className="card-find__content">
-          <strong>Oh no!</strong>
-          <p className="card-find__text">Você ainda não tem um padrinho</p>
+          <strong>{title}</strong>
+          <p className="card-find__text">{text}</p>
         </div>
       </div>
-      <Button className="btn btn-secondary w-100">Encontre seu dindo</Button>
+      <Button className="btn btn-secondary w-100" onClick={onClick}>
+        {buttonText}
+      </Button>
     </div>
   )
 }
