@@ -65,11 +65,21 @@ export const STEPS = [
     }),
   },
   {
-    component: () => (
+    component: ({ handleNext }) => (
       <div className="pcd">
-        <label>Marque esta opção se você é portador de deficiência</label>
-        <input name="pwd" type="radio" value={true} id="sim" />
-        <input name="pwd" type="radio" value={false} id="nao" />
+        <label>Você é portador de alguma necessidade especial? (PCD)</label>
+        <input
+          onClick={() => handleNext({ pwd: true })}
+          name="pwd"
+          type="radio"
+          id="sim"
+        />
+        <input
+          onClick={() => handleNext({ pwd: false })}
+          name="pwd"
+          type="radio"
+          id="nao"
+        />
         <div
           class="btn-group mb-4 text-left"
           role="group"

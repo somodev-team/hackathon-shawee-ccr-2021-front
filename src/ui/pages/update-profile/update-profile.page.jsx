@@ -28,7 +28,7 @@ export const UpdateProfile = () => {
       return goToHome()
     }
 
-    setStep(step + 5)
+    setStep(step + 1)
     setNewProfile({
       ...newProfile,
       ...data,
@@ -47,12 +47,14 @@ export const UpdateProfile = () => {
         <Form schema={schema} onSubmit={handleNext}>
           <div className="flex-grow-1 d-flex w-100">
             <div className="steps flex-grow-1 d-flex align-items-center flex-column justify-content-center w-100">
-              <StepComponent />
+              <StepComponent handleNext={handleNext} />
             </div>
           </div>
-          <Button className="btn btn-primary w-100">
-            {isLast ? 'Finalizar' : 'Próximo'}
-          </Button>
+          {step !== 5 && (
+            <Button className="btn btn-primary w-100">
+              {isLast ? 'Finalizar' : 'Próximo'}
+            </Button>
+          )}
         </Form>
       </div>
     </div>
