@@ -2,7 +2,6 @@ import React from 'react'
 import './card-feed.style.scss'
 import { Button } from 'app-components'
 import Coca from '../../static/img/coca.png'
-import Like from '../../static/img/like.svg'
 import Liked from '../../static/img/liked.svg'
 
 export const CardFeed = () => {

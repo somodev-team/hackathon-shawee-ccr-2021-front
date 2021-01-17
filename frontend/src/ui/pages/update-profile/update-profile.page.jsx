@@ -37,24 +37,20 @@ export const UpdateProfile = () => {
   }
 
   return (
-    <div className="page update-profile full-height">
-      <div className="container full-height">
-        <div className="d-flex full-height">
-          <BackButton onClick={handleClick} />
-
-          <h1 className="update-profile__title">Complete seu perfil</h1>
-
-          <Form schema={schema} onSubmit={handleNext}>
-            <div className="flex-grow-1 d-flex">
-              <div className="steps flex-grow-1 d-flex align-items-center flex-column justify-content-center">
-                <StepComponent />
-              </div>
+    <div className="main d-flex flex-column update-profile">
+      <BackButton onClick={handleClick} />
+      <h1 className="update-profile__title mt-4">Complete seu perfil</h1>
+      <div className="flex-grow-1 text-center p-3 d-flex flex-column justify-content-center align-items-center">
+        <Form schema={schema} onSubmit={handleNext}>
+          <div className="flex-grow-1 d-flex w-100">
+            <div className="steps flex-grow-1 d-flex align-items-center flex-column justify-content-center w-100">
+              <StepComponent />
             </div>
-            <Button className="btn btn-primary w-100">
-              {isLast ? 'Finalizar' : 'Próximo'}
-            </Button>
-          </Form>
-        </div>
+          </div>
+          <Button className="btn btn-primary w-100">
+            {isLast ? 'Finalizar' : 'Próximo'}
+          </Button>
+        </Form>
       </div>
     </div>
   )

@@ -30,7 +30,7 @@ export const Company = () => {
       }
 
       return (
-        <label class="interests__column">
+        <label className="interests__column">
           <div className="card">
             {areaObject.name}
             <img
