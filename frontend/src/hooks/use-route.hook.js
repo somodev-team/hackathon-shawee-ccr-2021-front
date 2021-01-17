@@ -12,7 +12,6 @@ export const useRoute = () => {
     goToRegister: config => goTo('/register', config),
     goToHome: config => goTo('/home', config),
     goToUpdateProfile: config => goTo('/update-profile', config),
-    goToProfile: config => goTo('/profile', config),
     goToCompany: id => goTo(`/company/${id}`),
   }
 }

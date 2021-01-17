@@ -21,9 +21,13 @@ export const Companies = () => {
   }, [])
 
   const renderCompaniesList = companies => {
-    return companies.map(c => {
+    return companies.map((c, key) => {
       return (
-        <div className="companies__item" onClick={() => goToCompany(c.userId)}>
+        <div
+          key={key}
+          className="companies__item"
+          onClick={() => goToCompany(c.userId)}
+        >
           <div className="companies__avatar">
             {/* <img src={require(`../../static/img/${c.logo}.png`)} alt={c.nome} /> */}
           </div>

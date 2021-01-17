@@ -18,6 +18,7 @@ export const STEPS = [
     component: () => (
       <Input
         autoFocus
+        pattern="[0-9]*"
         label="Qual sua data de nascimento?"
         name="bornDate"
         mask="bornDate"
@@ -29,7 +30,13 @@ export const STEPS = [
   },
   {
     component: () => (
-      <Input autoFocus label="Qual o seu telefone?" name="phone" mask="phone" />
+      <Input
+        autoFocus
+        label="Qual o seu telefone?"
+        name="phone"
+        mask="phone"
+        pattern="[0-9]*"
+      />
     ),
     schema: Yup.object().shape({
       phone: Yup.string()

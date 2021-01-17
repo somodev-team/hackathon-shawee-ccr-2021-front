@@ -7,7 +7,7 @@ import { STEPS } from './steps'
 
 export const UpdateProfile = () => {
   const { updateProfile } = usePerson()
-  const { goToProfile } = useRoute()
+  const { goToHome } = useRoute()
   const [step, setStep] = useState(0)
   const [newProfile, setNewProfile] = useState({})
 
@@ -22,7 +22,7 @@ export const UpdateProfile = () => {
         ...data,
       })
 
-      return goToProfile()
+      return goToHome()
     }
 
     setStep(step + 1)
