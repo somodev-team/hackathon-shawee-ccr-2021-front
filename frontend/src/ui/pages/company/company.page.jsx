@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './company.style.scss'
-import { BackButton, Navbar } from 'app-components'
+import { BackButton } from 'app-components'
 import Coca from '../../static/img/coca.png'
 import Blessed from '../../static/img/blessed.svg'
 import { INTEREST_AREAS } from 'app-constants'
@@ -21,15 +21,21 @@ export const Company = () => {
     fetch()
   }, [])
 
-  const renderAreas = options => {
-    return options.map((area, key) => {
+  const renderAreas = () => {
+    return company.areas_of_actuation.map((area, key) => {
+      const areaObject = INTEREST_AREAS.find(a => a.name === area)
+
+      if (!areaObject) {
+        return null
+      }
+
       return (
         <label class="interests__column">
           <div className="card">
-            {area.name}
+            {areaObject.name}
             <img
-              src={require(`../../static/img/${area.icon}.svg`)}
-              alt={area.name}
+              src={require(`../../static/img/${areaObject.icon}.svg`)}
+              alt={areaObject.name}
             />
           </div>
         </label>
@@ -58,7 +64,7 @@ export const Company = () => {
 
               <div className="graybox">
                 <img src={Blessed} alt="Afilhados" />
-                <strong>13 Afilhados</strong>
+                <strong>{company.godChildrens} Afilhados</strong>
               </div>
             </div>
           </div>
@@ -68,10 +74,9 @@ export const Company = () => {
         </div>
         <strong className="company__areas-title">Áreas de atuação</strong>
         <div className="company__areas">
-          <div className="company__carousel">{renderAreas(INTEREST_AREAS)}</div>
+          <div className="company__carousel">{renderAreas()}</div>
         </div>
       </div>
-      <Navbar />
     </div>
   )
 }

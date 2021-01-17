@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { createRoute } from 'app-route-manager'
-import { Navbar, CardFind, CardFeed } from 'app-components'
+import { CardFind, CardFeed } from 'app-components'
 import './home.style.scss'
 import { useRoute } from 'app-hooks'
 
@@ -23,7 +23,6 @@ export const Home = () => {
         <CardFeed />
         <CardFeed />
       </div>
-      <Navbar />
     </div>
   )
 }

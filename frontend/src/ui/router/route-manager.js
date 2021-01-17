@@ -5,12 +5,14 @@ export const createRoute = ({
   component,
   isPrivate = false,
   exact = true,
+  hideNavbar = false,
 }) => {
   routes.push({
     path,
     component,
     isPrivate,
     exact,
+    hideNavbar,
   })
 }
 

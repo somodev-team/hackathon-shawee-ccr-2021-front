@@ -1,6 +1,6 @@
 import React from 'react'
 import { history } from 'app-helpers'
-import { Router, Switch, Redirect } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 import { PrivateRoute, PublicRoute } from 'app-router'
 import { getRoutes } from './route-manager'
 

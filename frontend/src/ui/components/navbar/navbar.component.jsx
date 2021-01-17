@@ -9,7 +9,7 @@ import User from '../../static/img/user.svg'
 export const Navbar = () => {
   return (
     <div className="navbar">
-      <Link to="/feed">
+      <Link to="/home">
         <img src={Feed} alt="Feed" />
       </Link>
 

@@ -64,4 +64,5 @@ createRoute({
   path: '/update-profile',
   component: UpdateProfile,
   isPrivate: true,
+  hideNavbar: true,
 })

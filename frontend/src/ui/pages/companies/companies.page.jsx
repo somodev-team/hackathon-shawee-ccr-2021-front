@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './companies.style.scss'
 import { useCompany, useRoute } from 'app-hooks'
-import { BackButton, SearchField, Navbar } from 'app-components'
+import { BackButton, SearchField } from 'app-components'
 import Coca from '../../static/img/coca.png'
 import Dell from '../../static/img/dell.png'
 
@@ -63,7 +63,6 @@ export const Companies = () => {
           </div>
         </div>
       </div>
-      <Navbar />
     </div>
   )
 }

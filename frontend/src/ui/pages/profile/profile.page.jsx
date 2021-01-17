@@ -24,4 +24,5 @@ export const Profile = () => {
 createRoute({
   path: '/profile',
   component: Profile,
+  isPrivate: true,
 })

@@ -3,8 +3,15 @@ import { Route } from 'react-router-dom'
 import { scrollHelper } from 'app-helpers'
 import { useRoute } from 'app-hooks'
 import { useGlobalLoggedUser } from 'app-providers'
+import { Navbar } from 'app-components'
 
-const Page = ({ component: Component, role, permissions, ...props }) => {
+const Page = ({
+  component: Component,
+  role,
+  permissions,
+  hideNavbar,
+  ...props
+}) => {
   const [loggedUser] = useGlobalLoggedUser()
   const { goToLogin } = useRoute()
 
@@ -21,15 +28,18 @@ const Page = ({ component: Component, role, permissions, ...props }) => {
   return (
     <>
       <Component {...props} />
+      {!hideNavbar && <Navbar />}
     </>
   )
 }
 
-export const PrivateRoute = ({ component, ...rest }) => {
+export const PrivateRoute = ({ component, hideNavbar, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={props => <Page component={component} {...props} />}
+      render={props => (
+        <Page component={component} hideNavbar={hideNavbar} {...props} />
+      )}
     />
   )
 }
