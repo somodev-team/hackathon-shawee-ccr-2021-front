@@ -6,6 +6,7 @@ import { useRoute } from 'app-hooks'
 import OhNo from '../../static/img/ohno.svg'
 
 export const Home = () => {
+  const { goToCompanies } = useRoute()
   const { goToUpdateProfile } = useRoute()
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const Home = () => {
           title="Oh no!"
           text="Você ainda não tem um padrinho"
           buttonText="Encontre seu dindo"
-          buttonAction=""
+          onClick={goToCompanies}
         />
         <h1 className="feed-title">Feed de notícias</h1>
         <CardFeed />

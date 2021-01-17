@@ -8,7 +8,7 @@ const instance = axios.create({
 })
 
 export const useApi = path => {
-  const [loaderVisible, setLoaderVisible] = useGlobalLoader()
+  const [, setLoaderVisible] = useGlobalLoader()
 
   const callApi = async ({ url, data, ...config }) => {
     setLoaderVisible(true)
