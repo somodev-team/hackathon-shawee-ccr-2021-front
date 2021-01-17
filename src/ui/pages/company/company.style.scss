@@ -40,15 +40,8 @@
 
   &__carousel {
     width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
     display: flex;
-
-    .interests__column {
-      min-width: 180px;
-      text-align: center;
-      font-weight: normal;
-    }
+    flex-wrap: wrap;
 
     .card {
       display: flex;
