@@ -1,3 +1,18 @@
 .start {
+  &__content {
+    flex: 1;
+  }
 
+  img {
+    align-self: center;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.start-text {
+    font-size: 28px;
 }

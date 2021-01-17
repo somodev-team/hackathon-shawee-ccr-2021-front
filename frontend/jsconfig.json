@@ -11,7 +11,8 @@
       "app-route-manager": ["src/ui/router/route-manager.js"],
       "app-providers": ["src/providers/index.js"],
       "app-helpers": ["src/helpers/index.js"],
-      "app-styles/*": ["src/ui/static/styles/*"]
+      "app-styles/*": ["src/ui/static/styles/*"],
+      "app-images/*": ["src/ui/static/img/*"]
     }
   },
   "exclude": ["node_modules", "build"]
