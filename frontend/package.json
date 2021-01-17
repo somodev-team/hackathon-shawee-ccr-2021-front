@@ -9,7 +9,8 @@
     "prettier": "npm run format:source",
     "start": "cross-env ENV_FILE=dsv node scripts/start.js",
     "start:hlg": "cross-env ENV_FILE=hlg node scripts/start.js",
-    "start:prd": "cross-env ENV_FILE=prd node scripts/start.js"
+    "start:prd": "cross-env ENV_FILE=prd node scripts/start.js",
+    "publish": "npm run build && mv build/index.html build/200.html && surge build dindo.surge.sh"
   },
   "dependencies": {
     "@unform/core": "^2.1.3",
