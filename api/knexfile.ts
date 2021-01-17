@@ -27,7 +27,7 @@ const log = {
 
 const config = {
   client: process.env.DATABASE_CLIENT,
-  connection: {
+  connection: process.env.DATABASE_URL || {
     host: process.env.DATABASE_HOST || '',
     user: process.env.DATABASE_USER || '',
     password: process.env.DATABASE_PASS,

@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: sistema
+      POSTGRES_DB: dindo
   api:
     image: node:13.14.0
     ports:

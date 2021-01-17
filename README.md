@@ -8,7 +8,7 @@ Para rodar o projeto completo execute `npm start` apartir da pasta raiz do proje
 
 # API
 
-A API do Dindo foi desenvolvida utilizando Nodejs, Typescript, Express e um banco de dados Postgress através do Knex.
+A API do Dindo foi desenvolvida utilizando Nodejs, Typescript, Express e um banco de dados Postgres através do Knex.
 
 A estrutura básica encontra-se na pasta api/src/modules, onde são encontrados os endpoints disponíveis e as regras de negócio da plataforma.
 
