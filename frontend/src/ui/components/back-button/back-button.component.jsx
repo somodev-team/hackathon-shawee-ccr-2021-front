@@ -2,7 +2,7 @@ import React from 'react'
 import './back-button.style.scss'
 import { useHistory } from 'react-router-dom'
 
-export const BackButton = () => {
+export const BackButton = ({ onClick }) => {
   let history = useHistory()
 
   function handleClick() {
@@ -10,7 +10,10 @@ export const BackButton = () => {
   }
 
   return (
-    <button className="back-button btn" onClick={handleClick}>
+    <button
+      className="back-button btn"
+      onClick={onClick ? onClick : handleClick}
+    >
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

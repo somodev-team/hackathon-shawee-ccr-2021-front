@@ -113,3 +113,11 @@ input:-webkit-autofill:active {
   overflow-y: scroll;
   padding-bottom: 60px;
 }
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 1px 3px 18px -12px rgba(#000, 0.3);
+  margin-top: 20px;
+}

@@ -7,7 +7,9 @@ const DateRegex = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.
 
 export const STEPS = [
   {
-    component: () => <Input autoFocus label="Nome" name="name" />,
+    component: () => (
+      <Input autoFocus label="Qual é o seu nome completo?" name="name" />
+    ),
     schema: Yup.object().shape({
       name: Yup.string().max(255).min(4).required(),
     }),
@@ -16,7 +18,7 @@ export const STEPS = [
     component: () => (
       <Input
         autoFocus
-        label="Data de Nascimento"
+        label="Qual sua data de nascimento?"
         name="bornDate"
         mask="bornDate"
       />
@@ -27,7 +29,7 @@ export const STEPS = [
   },
   {
     component: () => (
-      <Input autoFocus label="Telefone" name="phone" mask="phone" />
+      <Input autoFocus label="Qual o seu telefone?" name="phone" mask="phone" />
     ),
     schema: Yup.object().shape({
       phone: Yup.string()
@@ -37,20 +39,33 @@ export const STEPS = [
   },
   {
     component: () => (
-      <Select label="Estado" name="addressState" options={STATES} />
+      <Select
+        label="Selecione seu estado"
+        name="addressState"
+        options={STATES}
+      />
     ),
     schema: Yup.object().shape({
       addressState: Yup.string().length(2).required(),
     }),
   },
   {
-    component: () => <Input autoFocus label="Cidade" name="addressCity" />,
+    component: () => (
+      <Input autoFocus label="E agora sua cidade" name="addressCity" />
+    ),
     schema: Yup.object().shape({
       addressCity: Yup.string().max(255).required(),
     }),
   },
   {
-    component: () => <Input autoFocus label="PCD" name="pwd" type="checkbox" />,
+    component: () => (
+      <Input
+        autoFocus
+        label="Marque esta opção se você é portador de deficiência"
+        name="pwd"
+        type="checkbox"
+      />
+    ),
     schema: Yup.object().shape({
       pwd: Yup.bool(),
     }),

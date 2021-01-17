@@ -35,7 +35,12 @@ export const Form = ({ onSubmit, children, schema }) => {
   }
 
   return (
-    <FormComponent ref={formRef} noValidate onSubmit={handleSubmit}>
+    <FormComponent
+      ref={formRef}
+      noValidate
+      onSubmit={handleSubmit}
+      className="form"
+    >
       {children}
     </FormComponent>
   )

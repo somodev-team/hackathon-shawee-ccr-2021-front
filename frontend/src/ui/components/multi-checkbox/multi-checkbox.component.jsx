@@ -21,24 +21,30 @@ export const MultiCheckbox = ({ name, options }) => {
   const renderOptions = () => {
     return options.map((area, key) => {
       return (
-        <>
-          {area}
+        <label class="interests__column">
           <input
             type="checkbox"
             onChange={handleChange}
             key={key}
             name={name}
-            label={area}
-            value={area}
+            label={area.name}
+            value={area.name}
           />
-        </>
+          <div className="card">
+            {area.name}
+            <img
+              src={require(`../../static/img/${area.icon}.svg`)}
+              alt={area.name}
+            />
+          </div>
+        </label>
       )
     })
   }
 
   return (
     <>
-      {renderOptions()}
+      <div className="interests">{renderOptions()}</div>
       <Input
         type="hidden"
         name={name}

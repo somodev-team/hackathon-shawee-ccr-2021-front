@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './update-profile.style.scss'
-import { Button, Form } from 'app-components'
+import { Button, Form, BackButton } from 'app-components'
 import { usePerson, useRoute } from 'app-hooks'
 import { STEPS } from './steps'
 
@@ -32,15 +32,30 @@ export const UpdateProfile = () => {
     })
   }
 
+  const handleClick = () => {
+    setStep(step - 1)
+  }
+
   return (
-    <div className="update-profile">
-      <h1>Atualizar Perfil</h1>
+    <div className="page update-profile full-height">
+      <div className="container full-height">
+        <div className="d-flex full-height">
+          <BackButton onClick={handleClick} />
 
-      <Form schema={schema} onSubmit={handleNext}>
-        <StepComponent />
+          <h1 className="update-profile__title">Complete seu perfil</h1>
 
-        <Button>{isLast ? 'Finalizar' : 'Próximo'}</Button>
-      </Form>
+          <Form schema={schema} onSubmit={handleNext}>
+            <div className="flex-grow-1 d-flex">
+              <div className="steps flex-grow-1 d-flex align-items-center flex-column justify-content-center">
+                <StepComponent />
+              </div>
+            </div>
+            <Button className="btn btn-primary w-100">
+              {isLast ? 'Finalizar' : 'Próximo'}
+            </Button>
+          </Form>
+        </div>
+      </div>
     </div>
   )
 }
