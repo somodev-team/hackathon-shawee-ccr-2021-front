@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "nf start web=0,api,frontend",
-    "install-api": "cd api && npm i",
+    "install-api": "npm --prefix api i",
     "api": "docker-compose up",
     "install-frontend": "cd frontend && npm i",
     "frontend": "cd frontend && npm start",
     "postinstall": "npm run install-api && npm run install-frontend",
     "test": "npm run test-api",
-    "test-api": "cd api && npm test",
+    "test-api": "npm --prefix api test",
     "build": "npm run build-api",
     "build-api": "npm run --prefix api build",
     "built-api": "node api/dist/index.js"
