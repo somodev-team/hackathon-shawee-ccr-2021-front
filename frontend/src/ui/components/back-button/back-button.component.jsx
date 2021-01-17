@@ -1,12 +1,17 @@
+import { useRoute } from 'app-hooks'
 import React from 'react'
 import './back-button.style.scss'
-import { useHistory } from 'react-router-dom'
 
 export const BackButton = ({ onClick }) => {
-  let history = useHistory()
+  const { goBack, goToStart } = useRoute()
 
   function handleClick() {
-    history.goBack()
+    if (/\/(register|login)/.test(window.location.pathname)) {
+      goToStart()
+      return
+    }
+
+    goBack()
   }
 
   return (

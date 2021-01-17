@@ -7,14 +7,7 @@ import { useGlobalLoggedUser } from 'app-providers'
 import Logo from '../../static/img/logo.png'
 
 export const Start = () => {
-  const { goToRegister, goToLogin, goToHome } = useRoute()
-  const [loggedUser] = useGlobalLoggedUser()
-
-  useEffect(() => {
-    if (loggedUser) {
-      goToHome()
-    }
-  }, [])
+  const { goToRegister, goToLogin } = useRoute()
 
   return (
     <div className="start bg page">

@@ -7,11 +7,12 @@ export const useRoute = () => {
     goTo,
     goBack: () => history.goBack(),
 
-    goToStart: config => goTo('/start', config),
+    goToStart: config => goTo('/', config),
     goToLogin: config => goTo('/login', config),
     goToRegister: config => goTo('/register', config),
     goToHome: config => goTo('/home', config),
     goToUpdateProfile: config => goTo('/update-profile', config),
     goToProfile: config => goTo('/profile', config),
+    goToCompany: id => goTo(`/company/${id}`),
   }
 }

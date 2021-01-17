@@ -9,8 +9,6 @@ export const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const profile = await getProfile()
-
-      console.log(profile)
     }
 
     fetch()

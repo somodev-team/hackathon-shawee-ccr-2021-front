@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './company.style.scss'
 import { BackButton, Navbar } from 'app-components'
 import Coca from '../../static/img/coca.png'
 import Blessed from '../../static/img/blessed.svg'
 import { INTEREST_AREAS } from 'app-constants'
+import { useCompany } from 'app-hooks'
+import { useParams } from 'react-router-dom'
 
 export const Company = () => {
+  const { id } = useParams()
+  const { getCompany } = useCompany()
+  const [company, setCompany] = useState()
+
+  useEffect(() => {
+    const fetch = async () => {
+      setCompany(await getCompany(id))
+    }
+
+    fetch()
+  }, [])
+
   const renderAreas = options => {
     return options.map((area, key) => {
       return (
@@ -22,6 +36,11 @@ export const Company = () => {
       )
     })
   }
+
+  if (!company) {
+    return null
+  }
+
   return (
     <div className="page company">
       <div className="scroll container">
@@ -32,24 +51,20 @@ export const Company = () => {
               <img src={Coca} alt="Coca" />
             </div>
             <div className="companies__content justify-content-between w-100">
-              <h1 className="companies__title">Dell Inc</h1>
-              <span className="company-location">São Paulo - SP</span>
+              <h1 className="companies__title">{company.name}</h1>
+              <span className="company-location">
+                {company.address_city} - {company.address_state}
+              </span>
 
               <div className="graybox">
                 <img src={Blessed} alt="Afilhados" />
-                <strong>13</strong>
-                <span>Afilhados</span>
+                <strong>13 Afilhados</strong>
               </div>
             </div>
           </div>
           <hr />
           <strong>Sobre</strong>
-          <small className="company__about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis,
-            temporibus fugit nemo doloribus accusantium vero, inventore soluta
-            aliquam optio molestias debitis sunt tempore recusandae itaque
-            repudiandae molestiae voluptates a!
-          </small>
+          <small className="company__about">{company.bio}</small>
         </div>
         <strong className="company__areas-title">Áreas de atuação</strong>
         <div className="company__areas">
@@ -62,6 +77,7 @@ export const Company = () => {
 }
 
 createRoute({
-  path: '/company',
+  path: '/company/:id',
   component: Company,
+  isPrivate: true,
 })
