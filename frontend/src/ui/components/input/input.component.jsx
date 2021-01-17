@@ -90,6 +90,7 @@ export const Input = ({
         ref={handleRef}
         mask={mask}
         maskChar={maskChar}
+        autoComplete="off"
         {...rest}
       />
       {error && <span className="error">{error}</span>}

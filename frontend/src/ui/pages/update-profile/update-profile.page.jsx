@@ -48,4 +48,5 @@ export const UpdateProfile = () => {
 createRoute({
   path: '/update-profile',
   component: UpdateProfile,
+  private: true,
 })
