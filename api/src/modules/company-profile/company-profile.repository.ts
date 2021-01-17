@@ -87,7 +87,7 @@ export class CompanyProfileRepository implements ICompanyProfileRepository {
       .paginate(paginationParams)
 
     result.data = result.data.map((data: any) => ({
-      id: data.id,
+      userId: data.user_id,
       name: data.name,
       username: data.username,
     }))

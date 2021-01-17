@@ -2,12 +2,22 @@ import { IUser, User } from './user.model'
 import Knex from 'knex'
 
 export interface IUsersRepository {
+  findById(id: string): Promise<User | undefined>
   findByUsername(username: string): Promise<User | undefined>
   create(user: IUser): Promise<User>
 }
 
 export class UsersRepository implements IUsersRepository {
   constructor(private database: Knex) {}
+
+  async findById(id: string): Promise<User | undefined> {
+    const result = await this.database
+      .select('*')
+      .from<User>('users')
+      .where('id', id)
+      .first()
+    return result
+  }
 
   async findByUsername(username: string): Promise<User | undefined> {
     const result = await this.database
