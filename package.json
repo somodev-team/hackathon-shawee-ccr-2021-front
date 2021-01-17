@@ -14,7 +14,7 @@
     "test-api": "cd api && npm test",
     "build": "npm run build-api",
     "build-api": "cd api && npm run build",
-    "built-api": "node api/dist/api/index.js",
+    "built-api": "node api/dist/index.js",
     "tsc": "tsc"
   },
   "repository": {
