@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './companies.style.scss'
-import { useCompany } from 'app-hooks'
-import { BackButton, SearchField, Navbar } from 'app-components'
+import { useCompany, useRoute } from 'app-hooks'
+import { BackButton, SearchField } from 'app-components'
 import Coca from '../../static/img/coca.png'
 import Dell from '../../static/img/dell.png'
 
 export const Companies = () => {
+  const { goToCompany } = useRoute()
   const { getCompanies } = useCompany()
   const [companies, setCompanies] = useState([])
 
@@ -22,9 +23,9 @@ export const Companies = () => {
   const renderCompaniesList = companies => {
     return companies.map(c => {
       return (
-        <div className="companies__item">
+        <div className="companies__item" onClick={() => goToCompany(c.userId)}>
           <div className="companies__avatar">
-            <img src={require(`../../static/img/${c.logo}.png`)} alt={c.nome} />
+            {/* <img src={require(`../../static/img/${c.logo}.png`)} alt={c.nome} /> */}
           </div>
           <div className="companies__content">
             <h1 className="companies__title">{c.name}</h1>
@@ -62,7 +63,6 @@ export const Companies = () => {
           </div>
         </div>
       </div>
-      <Navbar />
     </div>
   )
 }
@@ -70,5 +70,5 @@ export const Companies = () => {
 createRoute({
   path: '/companies',
   component: Companies,
-  private: true,
+  isPrivate: true,
 })

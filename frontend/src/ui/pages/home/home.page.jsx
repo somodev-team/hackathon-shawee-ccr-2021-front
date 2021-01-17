@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
 import { createRoute } from 'app-route-manager'
-import { Navbar, CardFind, CardFeed } from 'app-components'
+import { CardFind, CardFeed } from 'app-components'
 import './home.style.scss'
-import { useGlobalLoggedUser } from 'app-providers'
 import { useRoute } from 'app-hooks'
 
 export const Home = () => {
-  const [loggedUser] = useGlobalLoggedUser()
   const { goToUpdateProfile } = useRoute()
 
   useEffect(() => {
-    if (!loggedUser.profileDone) {
+    if (!JSON.parse(localStorage.getItem('completed-profile'))) {
       goToUpdateProfile()
     }
   }, [])
@@ -25,7 +23,6 @@ export const Home = () => {
         <CardFeed />
         <CardFeed />
       </div>
-      <Navbar />
     </div>
   )
 }

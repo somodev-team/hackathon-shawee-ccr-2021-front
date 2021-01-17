@@ -10,6 +10,7 @@ export const usePerson = () => {
     data.bornDate = new Date([month, day, year].join('/')).toISOString()
 
     await api.post('update', data)
+    localStorage.setItem('completed-profile', true)
   }
 
   const getProfile = async id => {

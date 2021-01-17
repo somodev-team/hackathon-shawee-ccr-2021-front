@@ -1,27 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoute } from 'app-route-manager'
 import './company.style.scss'
-import { BackButton, Navbar } from 'app-components'
+import { BackButton } from 'app-components'
 import Coca from '../../static/img/coca.png'
 import Blessed from '../../static/img/blessed.svg'
 import { INTEREST_AREAS } from 'app-constants'
+import { useCompany } from 'app-hooks'
+import { useParams } from 'react-router-dom'
 
 export const Company = () => {
-  const renderAreas = options => {
-    return options.map((area, key) => {
+  const { id } = useParams()
+  const { getCompany } = useCompany()
+  const [company, setCompany] = useState()
+
+  useEffect(() => {
+    const fetch = async () => {
+      setCompany(await getCompany(id))
+    }
+
+    fetch()
+  }, [])
+
+  const renderAreas = () => {
+    return company.areas_of_actuation.map((area, key) => {
+      const areaObject = INTEREST_AREAS.find(a => a.name === area)
+
+      if (!areaObject) {
+        return null
+      }
+
       return (
         <label class="interests__column">
           <div className="card">
-            {area.name}
+            {areaObject.name}
             <img
-              src={require(`../../static/img/${area.icon}.svg`)}
-              alt={area.name}
+              src={require(`../../static/img/${areaObject.icon}.svg`)}
+              alt={areaObject.name}
             />
           </div>
         </label>
       )
     })
   }
+
+  if (!company) {
+    return null
+  }
+
   return (
     <div className="page company">
       <div className="scroll container">
@@ -32,36 +57,32 @@ export const Company = () => {
               <img src={Coca} alt="Coca" />
             </div>
             <div className="companies__content justify-content-between w-100">
-              <h1 className="companies__title">Dell Inc</h1>
-              <span className="company-location">São Paulo - SP</span>
+              <h1 className="companies__title">{company.name}</h1>
+              <span className="company-location">
+                {company.address_city} - {company.address_state}
+              </span>
 
               <div className="graybox">
                 <img src={Blessed} alt="Afilhados" />
-                <strong>13</strong>
-                <span>Afilhados</span>
+                <strong>{company.godChildrens} Afilhados</strong>
               </div>
             </div>
           </div>
           <hr />
           <strong>Sobre</strong>
-          <small className="company__about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis,
-            temporibus fugit nemo doloribus accusantium vero, inventore soluta
-            aliquam optio molestias debitis sunt tempore recusandae itaque
-            repudiandae molestiae voluptates a!
-          </small>
+          <small className="company__about">{company.bio}</small>
         </div>
         <strong className="company__areas-title">Áreas de atuação</strong>
         <div className="company__areas">
-          <div className="company__carousel">{renderAreas(INTEREST_AREAS)}</div>
+          <div className="company__carousel">{renderAreas()}</div>
         </div>
       </div>
-      <Navbar />
     </div>
   )
 }
 
 createRoute({
-  path: '/company',
+  path: '/company/:id',
   component: Company,
+  isPrivate: true,
 })

@@ -9,8 +9,6 @@ export const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const profile = await getProfile()
-
-      console.log(profile)
     }
 
     fetch()
@@ -26,4 +24,5 @@ export const Profile = () => {
 createRoute({
   path: '/profile',
   component: Profile,
+  isPrivate: true,
 })

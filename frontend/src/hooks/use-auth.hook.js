@@ -8,14 +8,24 @@ export const useAuth = () => {
 
   const login = async credentials => {
     const { token } = await api.post('login', credentials)
+    const { user } = safeJWTDecode(token)
+
     saveToken(token)
-    setLoggedUser(safeJWTDecode(token))
+    setLoggedUser(user)
+
+    localStorage.setItem('completed-profile', user.profileDone)
   }
 
   const register = async credentials => {
+    credentials.type = 'person'
+
     const { token } = await api.post('create', credentials)
+    const { user } = safeJWTDecode(token)
+
     saveToken(token)
-    setLoggedUser(safeJWTDecode(token))
+    setLoggedUser(user)
+
+    localStorage.setItem('completed-profile', user.profileDone)
   }
 
   const logout = () => {

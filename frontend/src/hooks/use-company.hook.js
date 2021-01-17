@@ -9,7 +9,12 @@ export const useCompany = () => {
     return data
   }
 
+  const getCompany = async id => {
+    return await api.get(id)
+  }
+
   return {
     getCompanies,
+    getCompany,
   }
 }
