@@ -1,9 +1,9 @@
 import React from 'react'
 import './login.style.scss'
 import { createRoute } from 'app-route-manager'
-import { Form, Input } from 'app-components'
+import { Form, Input, Button, BackButton } from 'app-components'
 import { useAuth, useRoute } from 'app-hooks'
-
+import Pablo from '../../static/img/pablo.png'
 export const Login = () => {
   const { login } = useAuth()
   const { goToHome } = useRoute()
@@ -14,15 +14,42 @@ export const Login = () => {
   }
 
   return (
-    <div className="login">
-      <h1>Login</h1>
-
-      <Form onSubmit={handleSubmit}>
-        <Input label="Usuário" name="username" mask="username" />
-        <Input label="Senha" name="password" type="password" />
-
-        <button>Entrar</button>
-      </Form>
+    <div className="login bg page">
+      <div className="container">
+        <BackButton />
+      </div>
+      <div className="container full-height">
+        <div className="flex-grow-1 d-flex flex-column align-items-center p-5">
+          <img src={Pablo} width="120" alt="Bem Vindo" />
+          <br />
+          <br />
+          <h1 className="title">Bem vindo ao Dindo</h1>
+          <p className="login__paragraph">
+            Estamos muito animados em te ver novamente!
+          </p>
+        </div>
+        <div className="mb-3">
+          <Form onSubmit={handleSubmit}>
+            <div className="input-grouped">
+              <Input
+                label="Usuário"
+                name="username"
+                mask="username"
+                placeholder="@seu_usuario"
+              />
+            </div>
+            <div className="input-grouped">
+              <Input
+                label="Senha"
+                name="password"
+                type="password"
+                placeholder="Sua Senha"
+              />
+            </div>
+            <Button className="btn btn-primary w-100">Entrar</Button>
+          </Form>
+        </div>
+      </div>
     </div>
   )
 }
