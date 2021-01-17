@@ -1,3 +1,3 @@
 import { IRequest } from '../../request.model'
 
-export interface IRequestCreateDTO extends Pick<IRequest, 'requesterId'> {}
+export interface IRequestAcceptDTO extends IRequest {}

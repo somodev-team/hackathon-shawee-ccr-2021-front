@@ -7,11 +7,10 @@ export class RequestAcceptController {
   constructor(private requestAcceptService: RequestAcceptService) {}
 
   async handle(req: Request, res: Response, next: any): Promise<Response> {
-    const jwtData = getJWTfromRequest(req)
-    const { requesterId } = req.body
+    const { requesterId, requestedId } = req.body
     try {
       await this.requestAcceptService.execute({
-        requestedId: jwtData.user.id,
+        requestedId,
         requesterId,
       })
     } catch (error) {
