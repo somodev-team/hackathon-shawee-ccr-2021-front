@@ -4,6 +4,7 @@ import './update-profile.style.scss'
 import { Button, Form, BackButton } from 'app-components'
 import { usePerson, useRoute } from 'app-hooks'
 import { STEPS } from './steps'
+import { scrollHelper } from 'app-helpers'
 
 export const UpdateProfile = () => {
   const { updateProfile } = usePerson()
@@ -16,6 +17,8 @@ export const UpdateProfile = () => {
   const schema = useMemo(() => STEPS[step].schema, [step])
 
   const handleNext = async data => {
+    scrollHelper.goToTop()
+
     if (isLast) {
       await updateProfile({
         ...newProfile,

@@ -43,7 +43,9 @@ export const MultiCheckbox = ({ name, options }) => {
 
   return (
     <>
-      <strong>Selecione pelo mens um área que você tem interesse</strong>
+      <strong class="interests__title">
+        Selecione pelo mens um área que você tem interesse
+      </strong>
       <div className="interests">{renderOptions()}</div>
       <Input
         type="hidden"
