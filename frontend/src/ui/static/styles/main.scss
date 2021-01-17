@@ -86,8 +86,30 @@ input:-webkit-autofill:active {
     }
   }
 }
+
 .error {
   font-weight: lighter;
   font-size: 12px;
   color: #ea364f;
+}
+
+.radio {
+  margin-top: 10px;
+
+  .input {
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    input {
+      margin-right: 10px;
+    }
+  }
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: scroll;
+  padding-bottom: 60px;
 }

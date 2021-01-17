@@ -24,7 +24,7 @@ export const Start = () => {
           <br />
           <br />
           <br />
-          <h1 class="title text-center start-text">
+          <h1 className="title text-center start-text">
             Sua oportunidade a alguns passos
           </h1>
         </div>

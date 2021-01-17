@@ -25,8 +25,7 @@ export const Register = () => {
         <BackButton />
       </div>
       <div className="container full-height">
-        <div className="flex-grow-1 d-flex flex-column align-items-center p-5">
-          {/* <img src={Pablo} width="120" alt="Bem Vindo" /> */}
+        <div className="flex-grow-1 d-flex flex-column align-items-center justify-content-center p-5">
           <br />
           <br />
           <br />
@@ -53,17 +52,26 @@ export const Register = () => {
                 placeholder="Sua Senha"
               />
             </div>
-            {/* <div className="input-grouped"> */}
-            <Input
-              defaultChecked
-              label=""
-              value="person"
-              name="type"
-              type="hidden"
-            />
-            {/* <Input label="Empresa" value="person" name="type" type="radio" /> */}
-            {/* </div> */}
-
+            <div className="">Tipo de cadastro</div>
+            <div className="d-flex mb-3">
+              <div className="radio mr-4">
+                <Input
+                  defaultChecked
+                  label="Pessoal"
+                  value="person"
+                  name="type"
+                  type="radio"
+                />
+              </div>
+              <div className="radio">
+                <Input
+                  label="Empresarial"
+                  value="person"
+                  name="type"
+                  type="radio"
+                />
+              </div>
+            </div>
             <Button className="btn btn-primary w-100">Registrar</Button>
           </Form>
         </div>
