@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nf start web=0,api,frontend",
-    "install-api": "npm --prefix api install",
+    "install-api": "npm install --prefix ./api ",
     "api": "docker-compose up",
     "install-frontend": "cd frontend && npm i",
     "frontend": "cd frontend && npm start",
