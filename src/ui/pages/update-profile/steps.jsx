@@ -66,12 +66,23 @@ export const STEPS = [
   },
   {
     component: () => (
-      <Input
-        autoFocus
-        label="Marque esta opção se você é portador de deficiência"
-        name="pwd"
-        type="checkbox"
-      />
+      <div className="pcd">
+        <label>Marque esta opção se você é portador de deficiência</label>
+        <input name="pwd" type="radio" value={true} id="sim" />
+        <input name="pwd" type="radio" value={false} id="nao" />
+        <div
+          class="btn-group mb-4 text-left"
+          role="group"
+          aria-label="Basic example"
+        >
+          <label class="btn btn-primary" for="sim">
+            Sim
+          </label>
+          <label class="btn btn-primary" for="nao">
+            Não
+          </label>
+        </div>
+      </div>
     ),
     schema: Yup.object().shape({
       pwd: Yup.bool(),

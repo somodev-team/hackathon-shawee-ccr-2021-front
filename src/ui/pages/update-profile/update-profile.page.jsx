@@ -28,7 +28,7 @@ export const UpdateProfile = () => {
       return goToHome()
     }
 
-    setStep(step + 1)
+    setStep(step + 5)
     setNewProfile({
       ...newProfile,
       ...data,

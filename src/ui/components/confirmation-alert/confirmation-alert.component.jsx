@@ -11,7 +11,7 @@ export const ConfirmationAlert = ({ onClick }) => {
         <CardFind
           img={Happy}
           title="WOW!"
-          text="A empresa que você solicitou topo ser seu padrinho"
+          text="A empresa que você solicitou topou ser seu padrinho"
           buttonText="Entre em contato"
           onClick={onClick}
         />

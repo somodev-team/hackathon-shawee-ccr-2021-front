@@ -39,7 +39,7 @@ export const Register = () => {
           </div>
           <div className="input-grouped">
             <Input
-              label="Password"
+              label="Senha"
               name="password"
               type="password"
               placeholder="Sua Senha"
