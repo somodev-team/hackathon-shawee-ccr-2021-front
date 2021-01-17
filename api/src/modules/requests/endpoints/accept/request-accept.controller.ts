@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import createHttpError from 'http-errors'
-import { getJWTfromRequest } from '../../../../core/utils/get-jwt-from-request'
 import { RequestAcceptService } from './request-accept.service'
 
 export class RequestAcceptController {

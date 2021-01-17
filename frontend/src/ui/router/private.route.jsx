@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import { Route } from 'react-router-dom'
 import { scrollHelper } from 'app-helpers'
 import { useRoute } from 'app-hooks'
-import { useGlobalLoggedUser } from 'app-providers'
-import { Navbar } from 'app-components'
+import { useGlobalLoggedUser, useGlobalNavbar } from 'app-providers'
 
 const Page = ({
   component: Component,
@@ -12,11 +11,14 @@ const Page = ({
   hideNavbar,
   ...props
 }) => {
+  const [, setNavbarVisible] = useGlobalNavbar()
   const [loggedUser] = useGlobalLoggedUser()
   const { goToLogin } = useRoute()
 
   useEffect(() => {
     scrollHelper.goToTop()
+
+    setNavbarVisible(!hideNavbar)
   }, [Component])
 
   if (!loggedUser) {
@@ -28,7 +30,6 @@ const Page = ({
   return (
     <>
       <Component {...props} />
-      {!hideNavbar && <Navbar />}
     </>
   )
 }

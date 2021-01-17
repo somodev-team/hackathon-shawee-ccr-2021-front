@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { createRoute } from 'app-route-manager'
 import './start.style.scss'
 import { Button } from 'app-components'
 import { useRoute } from 'app-hooks'
-import { useGlobalLoggedUser } from 'app-providers'
 import Logo from '../../static/img/logo.png'
 
 export const Start = () => {
