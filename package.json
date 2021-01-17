@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nf start -r",
+    "start": "nf start web=0,api,frontend",
     "install-api": "cd api && npm i",
     "api": "docker-compose up",
     "install-frontend": "cd frontend && npm i",
@@ -12,7 +12,8 @@
     "postinstall": "npm run install-api && npm run install-frontend",
     "test": "npm run test-api",
     "test-api": "cd api && npm test",
-    "build-api": "cd api && npm run build"
+    "build-api": "cd api && npm run build",
+    "built-api": "node api/dist/api/index.js"
   },
   "repository": {
     "type": "git",

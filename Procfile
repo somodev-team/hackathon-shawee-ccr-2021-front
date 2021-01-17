@@ -1,2 +1,3 @@
-api: npm run start-api
-frontend: npm run start-frontend
+web: npm run built-api
+api: npm run api
+frontend: npm run frontend
