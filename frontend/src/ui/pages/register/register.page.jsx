@@ -4,6 +4,7 @@ import './register.style.scss'
 import { useAuth, useRoute } from 'app-hooks'
 import { Form, Input, Button, BackButton } from 'app-components'
 import { Yup } from 'app-helpers'
+import Pablo from '../../static/img/pablo.png'
 
 const schema = Yup.object().shape({
   username: Yup.string().min(4).max(20).required(),
@@ -26,13 +27,10 @@ export const Register = () => {
       </div>
       <div className="container full-height">
         <div className="flex-grow-1 d-flex flex-column align-items-center justify-content-center p-5">
-          <br />
+          <img src={Pablo} width="120" alt="Bem Vindo" />
           <br />
           <br />
           <h1 className="title">Bem vindo ao Dindo</h1>
-          <p className="login__paragraph">
-            Precisamos de alguns dados seus para finalizar seu cadastro
-          </p>
         </div>
         <div className="mb-3">
           <Form schema={schema} onSubmit={handleSubmit}>
