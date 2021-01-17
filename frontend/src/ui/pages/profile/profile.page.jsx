@@ -15,8 +15,11 @@ export const Profile = () => {
   }, [])
 
   return (
-    <div className="profile">
-      <h1>Perfil</h1>
+    <div className="main d-flex flex-column">
+      <div className="flex-grow-1">
+        <h1>Perfil</h1>
+      </div>
+      <button className="btn btn-primary">Botão</button>
     </div>
   )
 }
