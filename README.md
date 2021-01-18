@@ -1,13 +1,14 @@
-# Developing
-To start the application, just run `npm start`. If you want to use the production build run `npm run start:prd`.
+# Dindo
+<center>
+  <img src="docs/logo.png" width="100">
+</center>
 
-# Creating resources
-To easily create resources, just run `npm run create <TYPE> <NAME>`. For example: `npm run create page home` or `npm run create component header`
+# Tecnologias
+Para desenvolvimento do Dindo, utilizamos as seguintes tecnologias no Front-end:
+ - ReactJS
+ - SASS
+ - Bootstrap
+ - Webpack
 
-Available types:
- - constant
- - helper
- - hook
- - provider
- - component
- - page
+# Desenvolvendo
+Para iniciar a aplicação, apenas rode o comando `npm start`. A aplicação encontra-se dentro da pasta `src`.
