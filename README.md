@@ -1,7 +1,6 @@
-# Dindo
-<center>
+<p align="center">
   <img src="docs/logo.png" width="100">
-</center>
+</p>
 
 # Tecnologias
 Para desenvolvimento do Dindo, utilizamos as seguintes tecnologias no Front-end:
