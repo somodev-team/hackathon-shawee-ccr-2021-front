@@ -17,13 +17,13 @@ export const Navbar = () => {
         <img src={Companies} alt="Feed" />
       </NavLink>
 
-      <NavLink to="/chat" activeClassName="selected">
+      <span>
         <img src={Chat} alt="Feed" />
-      </NavLink>
+      </span>
 
-      <NavLink to="/profile" activeClassName="selected">
+      <span>
         <img src={User} alt="Feed" />
-      </NavLink>
+      </span>
     </div>
   )
 }
